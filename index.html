@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Controle de Gastos</title>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <!-- theme switcher -->
+
+      <div class="container-theme">
+        <div class="toggle-theme">
+          <img src="assets/moon.svg">
+          <img src="assets/sun.svg">
+          <button class="btn-theme"></button>
+        </div>
+      </div>
+      <div class="text-bills">
+        <h1>Total de contas</h1>
+        <span class="bg-details balance-bills">R$ 0.00</span>
+      </div>
+      <form class="create-bills">
+
+        <div class="container-input">
+          <img src="/assets/default-icon.svg">
+          <input type="text" id="account-name" placeholder="Nome da conta">
+        </div>
+
+        <div class="container-input">
+          <label for="expiration">Vencimento</label>
+          <input type="text" id="expiration" placeholder="00">
+        </div>
+
+        <div class="container-input">
+          <label for="balance-value">R$</label>
+          <input type="text" id="balance-value" placeholder="Digite o valor">
+        </div>
+
+        <button class="bg-details btn-add">Adicionar</button>
+
+      </form>
+    </header>
+
+    <ul class="list-bills">
+    </ul>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
