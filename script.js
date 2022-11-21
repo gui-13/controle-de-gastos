@@ -113,7 +113,7 @@ form.addEventListener('submit', event => {
    const transaction = {
     id: generateID(),
     name: String(transactionName).toLowerCase(),
-    amount: Number(transactionAmount),
+    amount: Number(transactionAmount.replace(',', '.')),
     expiration: Number(transactionExpiration),
   }
 
