@@ -5,23 +5,17 @@ const expiration = document.querySelector('#expiration')
 const balanceValue = document.querySelector('#balance-value')
 const form = document.querySelector('.create-bills')
 
-
-// Configura o Local Storege
 const localStoregeTransactions = JSON.parse(localStorage.getItem('transactions'))
 
 let transactions = localStorage.getItem('transactions') !== null ? localStoregeTransactions : []
 
 const removeTransaction = ID => {
-  // Remove uma transação pelo ID e atualiza no Local Storage e na página
   transactions = transactions.filter(transaction => 
     transaction.id !== ID)
   updateLocalStorage()
   init()
 }
 
-
-
-// Adiciona um elemento na página quando o botão ADD é clicado
 const addElementIntoDOM = transaction => {
   const li = document.createElement('li')
 
@@ -60,13 +54,8 @@ const addElementIntoDOM = transaction => {
     }
     
   } 
-
-
   setIcon(transaction.name)
 }
-
-
-// Atualiza os valores 
 
 const updateBalanceValues= () => {
   const transactionsAmounts = transactions.map(transaction => transaction.amount)
@@ -76,7 +65,6 @@ const updateBalanceValues= () => {
 }
 
 const init = () => {
-  // Executa o preenchimento na página
   listBills.innerHTML = ''
   transactions.forEach(addElementIntoDOM)
   updateBalanceValues()
@@ -84,20 +72,14 @@ const init = () => {
 
 init()
 
-
-// Atualiza a chave transactions do Local Storage para o array 
-  // ... de transações em forma de string
 function updateLocalStorage() {
   localStorage.setItem('transactions', JSON.stringify(transactions))
 }
 
-// Gera um ID aleatório
 const generateID = () => Math.round(Math.random() * 1000)
 
-
 form.addEventListener('submit', event => {
-  // Escuta o submit do form para verificar se inputs estão
-  // ... preenchidos e adicionar no array de transações]
+
   event.preventDefault()
 
    const transactionName = accountName.value.trim()
@@ -109,7 +91,6 @@ form.addEventListener('submit', event => {
     return
    }
 
-   //cria o objeto 
    const transaction = {
     id: generateID(),
     name: String(transactionName).toLowerCase(),
@@ -117,20 +98,16 @@ form.addEventListener('submit', event => {
     expiration: Number(transactionExpiration),
   }
 
-   // Adiciona no array de transações, preenche na página e 
-  // ... atualiza no Local Storage
   transactions.push(transaction)
   init()
   updateLocalStorage()
 
-  // Limpa os inputs
   accountName.value = ''
   balanceValue.value = ''
   expiration.value = ''
 })
 
 // theme switcher
-
 
 const body = document.body
 const btnTheme = document.querySelector('.btn-theme')
@@ -148,7 +125,6 @@ function toggleIcon() {
     btnTheme.classList.add('dark') 
   }
 }
-
 
 btnTheme.addEventListener('click', toggleTheme)
 
