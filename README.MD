@@ -13,7 +13,7 @@
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - HTML e CSS
-- JavaScript e JSON
+- JavaScript
 - [Node e NPM](https://nodejs.org/)
 
 ## 💻 Projeto
